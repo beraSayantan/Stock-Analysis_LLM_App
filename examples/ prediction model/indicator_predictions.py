@@ -4,10 +4,6 @@ import numpy as np
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import roc_auc_score
-from sklearn.preprocessing import label_binarize
-from sklearn.metrics import f1_score
-from sklearn.metrics import accuracy_score
 from sklearn.model_selection import KFold
 
 ticker = 'TATAMOTORS.NS'
@@ -27,6 +23,7 @@ def MACD(DF, a=12, b=26, c=9):
     """Function to calculate MACD; typical values: a (fast MA) = 12, b (slow MA) = 26, c (signal line MA) = 9."""
     df = DF.copy()
     df["ma_fast"] = df["Adj Close"].ewm(span=a, min_periods=a).mean()
+
     # here , decay in terms of a span, which is the number of observations used for calculating the exponentially weighted moving average
     df["ma_slow"] = df["Adj Close"].ewm(span=b, min_periods=b).mean()
     df["macd"] = df["ma_fast"] - df["ma_slow"]

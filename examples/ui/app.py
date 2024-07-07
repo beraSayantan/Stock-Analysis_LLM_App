@@ -9,13 +9,12 @@ api_host = os.environ.get("HOST", "0.0.0.0")
 api_port = int(os.environ.get("PORT", 8080))
 
 # Streamlit UI elements
-st.title("📈 Nifty 50 Trade Decision and  Insights")
+st.title("Nifty 50 Stocks Ananlysis 📈")
 st.markdown(
     """
     ## How to use:
     
-    Enter a question about price-action decision for any the Nifty 50 stock or as a whole, 
-        and the AI will provide decision along with justification and explanation through financial analysis.
+    Enter a query concerning a price-action choice for any Nifty 50 stock or the whole market, and the AI will deliver a conclusion, as well as reason and explanation based on financial research.
 
     ---
     """

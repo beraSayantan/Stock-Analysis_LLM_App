@@ -20,30 +20,24 @@ The **prediction model** runs whenever the app is launched, and the yfinance lib
 
 ## How the project works
 
-The sample project does the following procedures to achieve the above output:
+The sample project performs the following methods to obtain the above output:
 
-1. Prepare search data:
-    1. Generate: When the app runs , the [prediction model](/examples/predictionmodel/stock_prediction.py) runs and computes stock decisions for the day and compiles all data including the indicators explanation jsonl file into one jsonl file ready to be given as input to the embedding process
-    2. Chunk: Documents are split into short, mostly self-contained sections to be embedded.
-    3. Embed: Each section is [embedded](https://platform.openai.com/docs/guides/embeddings) with the OpenAI API and retrieve the embedded result.
-    4. Indexing: Constructs an index on the generated embeddings.
-2. Search (once per query)
-    1. Given a user question, generate an embedding for the query from the OpenAI API.
-    2. Using the embeddings, retrieve the vector index by relevance to the query
-3. Ask (once per query)
-    1. Insert the question and the most relevant sections into a message to GPT
-    2. Return GPT's answer
+1. Prepare the search data:
+    1. Generate: When the app starts, the [prediction model](/examples/predictionmodel/stock_prediction.py) runs and computes stock choices for the day, compiling all data, including the indicators explanation jsonl file, into one jsonl file ready to be supplied as input to the embedding process.
+    2. Chunk: Documents are divided into small, self-contained parts that can be embedded.
+    3. Embed: Each part is [embedded](https://platform.openai.com/docs/guides/embeddings) using the OpenAI API to receive the embedded result.
+    4. Indexing: Creates an index for the created embeddings.
+2. Search once per query.
+    1. Create an embedding for a user query using the OpenAI API.
+    2. Using the embeddings, obtain the vector index based on relevancy to the query
+3. Ask (one per inquiry).
+    1. Include the query and the most relevant details in a message to GPT.
+    2. Return GPT's response.
 
 
 ## How to run the project
 
 Example only supports Unix-like systems (such as Linux, macOS, BSD). If you are a Windows user, we highly recommend leveraging Windows Subsystem for Linux (WSL) or Dockerize the app to run as a container.
-
-### Run with Docker
-
-1. [Set environment variables](#step-2-set-environment-variables)
-2. From the project root folder, open your terminal and run `docker compose up`.
-3. Navigate to `localhost:8501` on your browser when docker installion is successful.
 
 ### Prerequisites
 
@@ -58,13 +52,13 @@ Then, follow the easy steps to install and get started using the sample app.
 This is done with the `git clone` command followed by the URL of the repository:
 
 ```bash
-git clone https://github.com/CodeAceKing382/Stocks-Insight-App
+git clone https://github.com/beraSayantan/Stock-Analysis_LLM_App.git
 ```
 
 Next,  navigate to the project folder:
 
 ```bash
-cd Stocks-Insight-App
+cd Stocks-Analysis_LLM_App
 ```
 
 ### Step 2: Set environment variables
@@ -98,8 +92,6 @@ python3 -m venv pw-env && source pw-env/bin/activate
 ```
 
 ### Step 5: Run and start to use it
-
-You start the application by navigating to `llm_app` folder and running `main.py`:
 
 ```bash
 python3 main.py
